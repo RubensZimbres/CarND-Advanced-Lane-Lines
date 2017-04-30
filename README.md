@@ -157,7 +157,7 @@ def find_road_curv_car_pos(lane_fit, y ,img_width):
 ## Resulting Videos
 I have two videos to demostrate. On the first one, I never used the previous frame to detect the lane-lines of the current lane. On the second I used that information
 
-First link: 
+First link: https://youtu.be/Hidu2JWVzhM
 
 Second link: https://youtu.be/tPk_HAh3VOQ
 
