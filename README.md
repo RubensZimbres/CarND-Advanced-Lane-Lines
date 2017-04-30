@@ -157,5 +157,13 @@ def find_road_curv_car_pos(lane_fit, y ,img_width):
 ## Resulting Videos
 I have two videos to demostrate. On the first one, I never used the previous frame to detect the lane-lines of the current lane. On the second I used that information
 
-First link:
-Second lind:
+First link: 
+
+Second link: https://youtu.be/tPk_HAh3VOQ
+
+## Discussion:
+Fisrt of all hard coded transformation can not give a proper results in terms of the radius of the curvature in real worl meter. As you can see in the video when the car get a small pitch angle, the transformed lines are not anymore parallel. I propose that the transformation should be optimised online in order that the resulting lane-lines become paraller. Then the curvature calculation can be correct.
+
+Secondly the perpesctive transformed image does not have enough resolution in far area. Better camera with higher resolution may make the it better but the computing time of the higher resolution image is more. Maybe it would be better to resize the image to lower resolution after the perspective transformation
+
+Finally finding a good threshholds on different filter to ger a robust result on all situation is very difficult and I do not have any idea how to make it better. Maybe a Machine Learning approach would be better.
