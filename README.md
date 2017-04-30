@@ -152,11 +152,34 @@ def find_road_curv_car_pos(lane_fit, y ,img_width):
 ![alt text][image6]
 
 ## Resulting Videos
-I have two videos to demostrate. On the first one, I never used the previous frame to detect the lane-lines of the current lane. On the second I used that information
+At final video because the thresholding could not handle all the images and reduce the noise, a moving average filter is applied to the line equations which do not have big difference with the previous line equation. This is done by this part of the code:
+```
+def filter_base_on_previous_frames(lane_fit):
+    global buffer_lines,num_bad_detect_in_row
+    global lines_idx, number_of_full
+    if number_of_full > 0:
+        differece = buffer_lines[lines_idx-1]-np.array(lane_fit)
+        differece = np.linalg.norm(differece)
+        print (differece)
+        if (differece>150.0 and num_bad_detect_in_row<8): #and is_previous_difference_not_ok==False
+            num_bad_detect_in_row += 1
+            average = np.mean(buffer_lines[:number_of_full,:,:],axis=0)
+            return average.tolist(),False        
+    num_bad_detect_in_row = 0
+    buffer_lines[lines_idx]=np.array(lane_fit)
+    lines_idx+=1
+    number_of_full +=1
+    if lines_idx>= 20:
+        lines_idx = 0
+    if number_of_full>= 20:
+        number_of_full = 20
+    average = np.mean(buffer_lines[:number_of_full,:,:],axis=0)
+    return average.tolist(),True
+```
 
-First link: https://youtu.be/_Q78fpEQS3k
+The video:
 
-Second link: https://youtu.be/E-2WkASlL_U
+Link: https://youtu.be/AQxOHcI6y98
 
 ## Discussion:
 Fisrt of all hard coded transformation can not give a proper results in terms of the radius of the curvature in real worl meter. As you can see in the video when the car get a small pitch angle, the transformed lines are not anymore parallel. I propose that the transformation should be optimised online in order that the resulting lane-lines become paraller. Then the curvature calculation can be correct.
