@@ -15,7 +15,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./output_images/Camera_test.png.png "Undistorted and Transformed image"
+[image1]: ./output_images/Camera_test.png "Undistorted and Transformed image"
 [image2]: ./output_images/src.png "Source Image"
 [image3]: ./output_images/undistorted.png "Undistorted Image"
 [image4]: ./output_images/combined_result.png "Combined Thresholding"
