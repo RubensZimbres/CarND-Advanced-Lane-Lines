@@ -21,9 +21,6 @@ The goals / steps of this project are the following:
 [image4]: ./output_images/combined_result.png "Combined Thresholding"
 [image5]: ./output_images/Transformation.png "Transformation: Source and Destination Points"
 [image6]: ./output_images/example_result.png "Example of the result"
-[image]: ./output_images/ ""
-[image]: ./output_images/ ""
-[image]: ./output_images/ ""
 
 
 # Writeup
@@ -157,9 +154,9 @@ def find_road_curv_car_pos(lane_fit, y ,img_width):
 ## Resulting Videos
 I have two videos to demostrate. On the first one, I never used the previous frame to detect the lane-lines of the current lane. On the second I used that information
 
-First link: https://youtu.be/Hidu2JWVzhM
+First link: https://youtu.be/_Q78fpEQS3k
 
-Second link: https://youtu.be/tPk_HAh3VOQ
+Second link: https://youtu.be/E-2WkASlL_U
 
 ## Discussion:
 Fisrt of all hard coded transformation can not give a proper results in terms of the radius of the curvature in real worl meter. As you can see in the video when the car get a small pitch angle, the transformed lines are not anymore parallel. I propose that the transformation should be optimised online in order that the resulting lane-lines become paraller. Then the curvature calculation can be correct.
