@@ -179,7 +179,7 @@ def filter_base_on_previous_frames(lane_fit):
 
 The video:
 
-Link: https://youtu.be/AQxOHcI6y98
+Link: https://youtu.be/SFbsSqE0xo8
 
 ## Discussion:
 Fisrt of all hard coded transformation can not give a proper results in terms of the radius of the curvature in real worl meter. As you can see in the video when the car get a small pitch angle, the transformed lines are not anymore parallel. I propose that the transformation should be optimised online in order that the resulting lane-lines become paraller. Then the curvature calculation can be correct.
